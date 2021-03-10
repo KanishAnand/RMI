@@ -15,7 +15,34 @@ public class Client {
          // Calling the remote method using the obtained object 
          String str = stub.printMsg(); 
          System.err.println(str);
-         System.out.println("Remote method invoked"); 
+
+         Scanner input = new Scanner(System.in);  // Create a Scanner object
+         while(true){
+            try{
+               String command = input.nextLine();  // Read user input
+               String[] splits = command.split(" ");
+               
+               if(splits[0].equals("add_graph")){
+                  String graph_identifier = splits[1];
+                  String number_nodes = splits[2];
+                  stub.add_graph(graph_identifier, number_nodes);
+               }
+               else if(splits[0].equals("add_edge")){
+                  String graph_identifier = splits[1];
+                  String u = splits[2];
+                  String v = splits[3];
+                  String w = splits[4];
+               }
+               else if(splits[0].equals("get_mst")){
+                  String graph_identifier = splits[1];
+               }
+            }
+            catch(Exception e){
+               stub.print_graphs();
+               break;
+            }
+         }
+
       } catch (Exception e) {
          System.err.println("Client exception: " + e.toString()); 
          e.printStackTrace(); 
