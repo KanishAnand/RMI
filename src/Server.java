@@ -1,6 +1,5 @@
 import java.rmi.registry.Registry; 
 import java.rmi.registry.LocateRegistry; 
-import java.rmi.RemoteException; 
 import java.rmi.server.UnicastRemoteObject; 
 
 public class Server extends Graph { 
@@ -15,7 +14,9 @@ public class Server extends Graph {
          GraphInterface stub = (GraphInterface) UnicastRemoteObject.exportObject(obj, 0);  
          
          // Binding the remote object (stub) in the registry 
-         Registry registry = LocateRegistry.getRegistry(); 
+         int port = Integer.parseInt(args[0]);
+         LocateRegistry.createRegistry(port);
+         Registry registry = LocateRegistry.getRegistry(port); 
          
          registry.bind("Graph", stub);  
          System.err.println("Server ready"); 

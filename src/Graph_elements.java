@@ -1,7 +1,7 @@
 import java.util.*; 
 
 public class Graph_elements{
-    String n;
+    int n;
     Vector<Edges> edges = new Vector<Edges> ();     
  }
 
