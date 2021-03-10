@@ -29,9 +29,10 @@ public class Client {
                }
                else if(splits[0].equals("add_edge")){
                   String graph_identifier = splits[1];
-                  String u = splits[2];
-                  String v = splits[3];
-                  String w = splits[4];
+                  int u = Integer.parseInt(splits[2]);
+                  int v = Integer.parseInt(splits[3]);
+                  int w = Integer.parseInt(splits[4]);
+                  stub.add_edge(graph_identifier, u, v, w);
                }
                else if(splits[0].equals("get_mst")){
                   String graph_identifier = splits[1];
