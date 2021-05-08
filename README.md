@@ -1,4 +1,4 @@
-# Problem
+# RMI
 
 Use RMI(Remote Method Invocation) in Java to implement a simple single server architecture with support for multiple clients. The details are as follows:
 
